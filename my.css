@@ -1,0 +1,197 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding-top: 70px; /* space for fixed navbar */
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Sections */
+section {
+    padding: 4rem 1rem;
+}
+
+/* Header handled by Bootstrap Navbar */
+
+/* Skills */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* Home Name with Blue Pulse Glow */
+.home-name {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0d6efd;
+    text-shadow: 
+        0 0 10px rgba(13, 110, 253, 0.4),
+        0 0 20px rgba(13, 110, 253, 0.2);
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px rgba(13, 110, 253, 0.4),
+            0 0 20px rgba(13, 110, 253, 0.2);
+    }
+    50% {
+        text-shadow: 
+            0 0 20px rgba(13, 110, 253, 0.7),
+            0 0 40px rgba(13, 110, 253, 0.4),
+            0 0 60px rgba(13, 110, 253, 0.2);
+    }
+}
+
+/* CSS-Only Typing Animation with Dual Colors */
+.typing-wrapper {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    min-height: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Text 1 - Blue Neon Glow (Name) */
+.typing-text-1 {
+    display: block;
+    color: #0d6efd;
+    text-shadow: 
+        0 0 10px rgba(13, 110, 253, 0.5),
+        0 0 20px rgba(13, 110, 253, 0.3),
+        0 0 30px rgba(13, 110, 253, 0.2);
+    animation: cycleText1 6s infinite;
+    opacity: 1;
+}
+
+/* Text 2 - Purple Neon Glow (Student) */
+.typing-text-2 {
+    display: block;
+    color: #6f42c1;
+    text-shadow: 
+        0 0 10px rgba(111, 66, 193, 0.5),
+        0 0 20px rgba(111, 66, 193, 0.3),
+        0 0 30px rgba(111, 66, 193, 0.2);
+    animation: cycleText2 6s infinite;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Animation for Text 1 */
+@keyframes cycleText1 {
+    0%, 45% { opacity: 1; }
+    50%, 95% { opacity: 0; }
+}
+
+/* Animation for Text 2 */
+@keyframes cycleText2 {
+    0%, 45% { opacity: 0; }
+    50%, 95% { opacity: 1; }
+}
+
+/* Hover: Pause animation and intensify glow */
+.typing-wrapper:hover .typing-text-1,
+.typing-wrapper:hover .typing-text-2 {
+    animation-play-state: paused;
+}
+
+.typing-wrapper:hover .typing-text-1 {
+    text-shadow: 
+        0 0 15px rgba(13, 110, 253, 0.8),
+        0 0 30px rgba(13, 110, 253, 0.6),
+        0 0 50px rgba(13, 110, 253, 0.4),
+        0 0 70px rgba(13, 110, 253, 0.3);
+}
+
+.typing-wrapper:hover .typing-text-2 {
+    text-shadow: 
+        0 0 15px rgba(111, 66, 193, 0.8),
+        0 0 30px rgba(111, 66, 193, 0.6),
+        0 0 50px rgba(111, 66, 193, 0.4),
+        0 0 70px rgba(111, 66, 193, 0.3);
+}
+
+.skill {
+    background: linear-gradient(135deg, #0d6efd, #004080);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Forms */
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+input,
+textarea {
+    border-radius: 0.5rem;
+}
+
+/* Buttons */
+.btn-custom {
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 30px;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #004080;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background-color: #212529;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+/* Icon Colors */
+.social-links .bi-telegram { color: #0088cc; }
+.social-links .bi-youtube { color: #ff0000; }
+.social-links .bi-tiktok { color: #000; }
+.social-links .bi-facebook { color: #1877f2; }
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 1rem;
+    }
+}
