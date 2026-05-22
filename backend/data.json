@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "title": "Mekdela Amba University Student Clearance System",
+      "description": "A full-stack PHP web app that automates student clearance, reduces paperwork, and improves approval tracking.",
+      "image": "./images/mau-clearance.png",
+      "github": "https://github.com/yourusername/mau-clearance-system",
+      "live": "https://yourdomain.com/mau-clearance",
+      "technologies": ["PHP", "MySQL", "JavaScript", "Bootstrap"]
+    },
+    {
+      "title": "Personal Portfolio Website",
+      "description": "A responsive portfolio built with HTML, CSS, JavaScript, and PHP to showcase projects, skills, and contact details.",
+      "image": "./images/portfolio-screenshot.png",
+      "github": "https://github.com/yourusername/portfolio",
+      "live": "https://yourdomain.com/portfolio",
+      "technologies": ["HTML", "CSS", "JavaScript", "Bootstrap"]
+    },
+    {
+      "title": "Dormitory Management System",
+      "description": "A PHP-based dorm management system with room assignment, student records, and reporting features.",
+      "image": "./images/dorm-management.png",
+      "github": "https://github.com/yourusername/dormitory-management",
+      "live": "https://yourdomain.com/dorm-management",
+      "technologies": ["PHP", "MySQL", "JavaScript"]
+    }
+  ]
+}

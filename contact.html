@@ -107,20 +107,22 @@
                         <form id="contactForm">
                             <div class="mb-4">
                                 <label class="form-label fw-semibold">Name</label>
-                                <input type="text" class="form-control form-control-lg border-0 bg-light" name="name" required>
+                                <input type="text" class="form-control form-control-lg border-0 bg-light" id="name" name="name" required>
                             </div>
 
                             <div class="mb-4">
                                 <label class="form-label fw-semibold">Email</label>
-                                <input type="email" class="form-control form-control-lg border-0 bg-light" name="email" required>
+                                <input type="email" class="form-control form-control-lg border-0 bg-light" id="email" name="email" required>
                             </div>
 
                             <div class="mb-4">
                                 <label class="form-label fw-semibold">Message</label>
-                                <textarea class="form-control border-0 bg-light" name="message" rows="5" required></textarea>
+                                <textarea class="form-control border-0 bg-light" id="message" name="message" rows="5" required></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-lg w-100 fw-bold" style="background: linear-gradient(135deg, #ff6b35, #f7931e); border: none; color: white;">
+                            <div id="formMessage" class="mb-4" style="display: none;"></div>
+
+                            <button type="submit" class="btn btn-lg w-100 fw-bold" id="submitBtn" style="background: linear-gradient(135deg, #ff6b35, #f7931e); border: none; color: white;">
                                 <i class="bi bi-send-fill me-2"></i> Send Message
                             </button>
                         </form>
@@ -192,5 +194,59 @@
     </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Disable submit button during submission
+                submitBtn.disabled = true;
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i> Sending...';
+
+                // Prepare form data
+                const formData = new FormData(contactForm);
+
+                try {
+                    const apiUrl = window.location.protocol === 'file:'
+                        ? 'http://localhost/enchuman/contact_handler.php'
+                        : new URL('contact_handler.php', window.location.href).href;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    // Show message
+                    formMessage.style.display = 'block';
+                    if (data.success) {
+                        formMessage.className = 'alert alert-success';
+                        formMessage.textContent = data.message;
+                        contactForm.reset();
+                    } else {
+                        formMessage.className = 'alert alert-danger';
+                        formMessage.textContent = data.message;
+                    }
+                } catch (error) {
+                    formMessage.style.display = 'block';
+                    formMessage.className = 'alert alert-danger';
+                    formMessage.textContent = 'Error: ' + error.message;
+                    console.error('Form submission error:', error);
+                } finally {
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
