@@ -1,157 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <link rel="stylesheet" href="../assets/css/styles.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>personal portofolo</title>
+    <title>Projects | Enchalew Azimeraw</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
-    <div class="container">
-        
-        <!-- Logo / Name -->
-        <a class="navbar-brand fw-bold" href="../index.html">
-            <i class="bi bi-person-circle me-2"></i>
-            Enchalew Azimeraw Melese
-        </a>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="../index.html"><i class="bi bi-person-circle me-2"></i>Enchalew Azimeraw Melese</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-person me-1"></i>About Me</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="project.html"><i class="bi bi-folder me-1"></i>Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-1"></i>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-        <!-- Toggle Button (Mobile) -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <main>
+        <section class="page-hero">
+            <div class="container text-center">
+                <span class="page-badge">Portfolio</span>
+                <h1 class="section-title">Selected projects and experiments.</h1>
+                <p class="section-subtitle mx-auto" style="max-width: 700px;">I build practical solutions that blend software engineering, data-driven thinking, and user-centered design.</p>
+            </div>
+        </section>
 
-        <!-- Navigation Links -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">
-                        <i class="bi bi-house-door me-1"></i> Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">
-                        <i class="bi bi-person me-1"></i> About Me
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="project.html">
-                        <i class="bi bi-folder me-1"></i> Projects
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">
-                        <i class="bi bi-envelope me-1"></i> Contact
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <section class="section-shell py-0">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="project-card card h-100">
+                            <div class="card-body p-4">
+                                <span class="project-badge">Machine Learning</span>
+                                <h3 class="card-title mb-3"><i class="bi bi-envelope-exclamation text-danger me-2"></i>SMS Spam Detection</h3>
+                                <p class="card-text text-muted">A machine learning solution that filters spam messages using TF-IDF feature extraction and logistic regression to classify incoming SMS content accurately.</p>
+                                <p class="mb-3"><strong>Tech:</strong> Python, Logistic Regression, TF-IDF, Scikit-learn</p>
+                                <a href="https://sms-spam-message-detector.streamlit.app/?embed=true" target="_blank" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
 
-    </div>
-</nav>
-  </header>
-
-    <!-- Projects Section -->
-<section id="projects" class="py-5 bg-light">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">My Projects</h2>
-            <p class="text-muted">Some of the projects I have worked on</p>
-        </div>
-
-        <div class="row g-4">
-            <!-- SMS Spam Detection Project -->
-            <div class="col-lg-6">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <i class="bi bi-envelope-exclamation text-danger me-2"></i>
-                            SMS Spam Detection
-                        </h5>
-                        <p class="card-text">
-                            A machine learning project designed to identify and filter unwanted SMS messages. The system uses TF-IDF vectorization for text feature extraction and Logistic Regression for classification, achieving high accuracy in distinguishing spam from legitimate messages.
-                        </p>
-                        <p class="card-text"><small><strong>Tech:</strong> Python, Logistic Regression, TF-IDF, Scikit-learn</small></p>
-                        <a href="https://sms-spam-message-detector.streamlit.app/?embed=true" class="btn btn-outline-primary btn-sm">View Code</a>
+                    <div class="col-lg-6">
+                        <div class="project-card card h-100">
+                            <div class="card-body p-4">
+                                <span class="project-badge">Web App</span>
+                                <h3 class="card-title mb-3"><i class="bi bi-house-door text-success me-2"></i>Dormitory Management System</h3>
+                                <p class="card-text text-muted">A complete dormitory dashboard for managing student records, room allocation, fee tracking, and operational reporting for university housing needs.</p>
+                                <p class="mb-3"><strong>Tech:</strong> React, PHP, MySQL, Bootstrap</p>
+                                <a href="#" class="btn btn-outline-primary">View Code</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <!-- Dormitory Management System -->
-            <div class="col-lg-6">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <i class="bi bi-house-door text-success me-2"></i>
-                            Dormitory Management System
-                        </h5>
-                        <p class="card-text">
-                            A comprehensive web application for managing university dormitory operations. Features include room allocation, student information management, fee tracking, and reporting. Built with React for the frontend and PHP for the backend.
-                        </p>
-                        <p class="card-text"><small><strong>Tech:</strong> React, PHP, MySQL, Bootstrap</small></p>
-                        <a href="#" class="btn btn-outline-primary btn-sm">View Code</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <footer style="background: #2c3e50; color: white; padding: 3rem 0;">
+    <footer>
         <div class="container">
             <div class="row">
-                <!-- Contact Column -->
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h5 class="fw-bold mb-3"><i class="bi bi-telephone-fill me-2"></i>Contact</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <a href="tel:+251931623352" style="color: #fff; text-decoration: none;">
-                                <i class="bi bi-phone me-2"></i>+251 931 623 352
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="mailto:enchalewazimeraw12@gmail.com" style="color: #fff; text-decoration: none;">
-                                <i class="bi bi-envelope me-2"></i>enchalewazimeraw12@gmail.com
-                            </a>
-                        </li>
-                        <li>
-                            <i class="bi bi-geo-alt me-2"></i>Ethiopia
-                        </li>
+                        <li class="mb-2"><a href="tel:+251931623352"><i class="bi bi-phone me-2"></i>+251 931 623 352</a></li>
+                        <li class="mb-2"><a href="mailto:enchalewazimeraw12@gmail.com"><i class="bi bi-envelope me-2"></i>enchalewazimeraw12@gmail.com</a></li>
+                        <li><i class="bi bi-geo-alt me-2"></i>Ethiopia</li>
                     </ul>
                 </div>
-                <!-- Quick Links -->
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h5 class="fw-bold mb-3"><i class="bi bi-link-45deg me-2"></i>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="../index.html" style="color: #fff; text-decoration: none;">Home</a></li>
-                        <li class="mb-2"><a href="about.html" style="color: #fff; text-decoration: none;">About</a></li>
-                        <li class="mb-2"><a href="project.html" style="color: #fff; text-decoration: none;">Projects</a></li>
-                        <li><a href="contact.html" style="color: #fff; text-decoration: none;">Contact</a></li>
+                        <li class="mb-2"><a href="../index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About</a></li>
+                        <li class="mb-2"><a href="project.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <!-- Social Links -->
                 <div class="col-md-4">
                     <h5 class="fw-bold mb-3"><i class="bi bi-share-fill me-2"></i>Follow Me</h5>
-                    <div class="d-flex gap-3">
-                        <a href="https://github.com/yourusername" target="_blank" style="color: #fff; font-size: 1.75rem;" title="GitHub">
-                            <i class="bi bi-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" style="color: #fff; font-size: 1.75rem;" title="LinkedIn">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                        <a href="https://t.me/yourtelegram" target="_blank" style="color: #fff; font-size: 1.75rem;" title="Telegram">
-                            <i class="bi bi-telegram"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@EnchalewAzimeraw" target="_blank" style="color: #fff; font-size: 1.75rem;" title="YouTube">
-                            <i class="bi bi-youtube"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/enchu316" target="_blank" style="color: #fff; font-size: 1.75rem;" title="TikTok">
-                            <i class="bi bi-tiktok"></i>
-                        </a>
+                    <div class="social-links d-flex gap-3">
+                        <a href="https://github.com/yourusername" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://t.me/yourtelegram" target="_blank" title="Telegram"><i class="bi bi-telegram"></i></a>
+                        <a href="https://www.youtube.com/@EnchalewAzimeraw" target="_blank" title="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="https://www.tiktok.com/enchu316" target="_blank" title="TikTok"><i class="bi bi-tiktok"></i></a>
                     </div>
                 </div>
             </div>
@@ -160,6 +104,6 @@
         </div>
     </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
