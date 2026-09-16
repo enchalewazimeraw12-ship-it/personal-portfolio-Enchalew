@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Disable button during submission
             if (submitBtn) {
                 submitBtn.disabled = true;
                 const originalText = submitBtn.innerHTML;
@@ -16,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             try {
-                // Determine API URL based on page protocol
-                const apiUrl = window.location.protocol === 'file:'
-                    ? 'http://localhost/enchuman/contact_handler.php'
+                const isInPagesFolder = window.location.pathname.includes('/pages/');
+                const apiUrl = isInPagesFolder
+                    ? new URL('../contact_handler.php', window.location.href).href
                     : new URL('contact_handler.php', window.location.href).href;
 
                 const formData = new FormData(contactForm);
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const data = await response.json();
 
-                // Show message
                 if (formMessage) {
                     formMessage.style.display = 'block';
                     if (data.success) {
@@ -40,10 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         formMessage.className = 'alert alert-danger';
                         formMessage.innerHTML = '<i class="bi bi-exclamation-circle me-2"></i>' + data.message;
                     }
-                } else {
-                    // Fallback if no formMessage element
-                    alert(data.success ? '✅ ' + data.message : '❌ ' + data.message);
-                    if (data.success) contactForm.reset();
                 }
             } catch (error) {
                 console.error('Form submission error:', error);
@@ -51,14 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     formMessage.style.display = 'block';
                     formMessage.className = 'alert alert-danger';
                     formMessage.innerHTML = '<i class="bi bi-exclamation-circle me-2"></i>Error: ' + error.message;
-                } else {
-                    alert('❌ Error: ' + error.message);
                 }
             } finally {
-                // Re-enable button
                 if (submitBtn) {
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
+                    submitBtn.innerHTML = submitBtn.dataset.originalText || submitBtn.innerHTML;
                 }
             }
         });
@@ -72,7 +63,12 @@ async function loadProjects() {
     if (!container) return;
 
     try {
-        const response = await fetch('backend/api.php');
+        const isInPagesFolder = window.location.pathname.includes('/pages/');
+        const apiUrl = isInPagesFolder
+            ? new URL('../backend/api.php', window.location.href).href
+            : new URL('backend/api.php', window.location.href).href;
+
+        const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

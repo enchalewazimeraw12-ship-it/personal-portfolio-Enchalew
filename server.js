@@ -42,8 +42,8 @@ app.post('/send-email', async (req, res) => {
 });
 
 // Serve static files
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'protofile.html'));
+app.get(['/', '/index.html', '/home.html'], (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const PORT = 3000;
