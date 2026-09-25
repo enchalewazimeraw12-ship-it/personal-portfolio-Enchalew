@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - /bin/cp -R * /home/omeresma/public_html/
+    - /bin/cp -R * /home/omeresma/omeresmale.com/portfolio/
