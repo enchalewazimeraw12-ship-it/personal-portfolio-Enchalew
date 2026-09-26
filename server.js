@@ -9,6 +9,10 @@ app.use(express.json());
 app.use(express.static(__dirname));
 app.use('/portfolio', express.static(__dirname));
 
+app.get('/portfolio', (req, res) => {
+    res.redirect('/portfolio/');
+});
+
 // Configure email (Gmail)
 const transporter = nodemailer.createTransport({
     service: 'gmail',
