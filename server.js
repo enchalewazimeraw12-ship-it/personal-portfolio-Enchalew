@@ -7,6 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
+app.use('/portfolio', express.static(__dirname));
 
 // Configure email (Gmail)
 const transporter = nodemailer.createTransport({
