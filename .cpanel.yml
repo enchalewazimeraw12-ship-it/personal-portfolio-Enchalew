@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/omeresma/public_html/portfolio/
+    - export DEPLOYPATH=/home/omeresma/portfolio.omeresmale.com/
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -R * $DEPLOYPATH
