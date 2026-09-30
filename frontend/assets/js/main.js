@@ -1,4 +1,4 @@
-// Contact Form Handler - Submit via fetch() to contact_handler.php
+// Contact Form Handler - Submit via the Node API
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     const submitBtn = document.getElementById('submitBtn');
@@ -15,15 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             try {
-                const isInPagesFolder = window.location.pathname.includes('/pages/');
-                const apiUrl = isInPagesFolder
-                    ? new URL('../contact_handler.php', window.location.href).href
-                    : new URL('contact_handler.php', window.location.href).href;
-
-                const formData = new FormData(contactForm);
+                const apiUrl = '/api/contact';
+                const formData = Object.fromEntries(new FormData(contactForm));
                 const response = await fetch(apiUrl, {
                     method: 'POST',
-                    body: formData
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
                 });
 
                 const data = await response.json();
@@ -56,19 +53,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     loadProjects();
+    loadProfile();
 });
+
+async function loadProfile() {
+    const profileContent = document.getElementById('profileContent');
+    if (!profileContent) return;
+
+    try {
+        const response = await fetch('/api/profile');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const profile = await response.json();
+        document.querySelector('[data-profile="name"]').textContent = profile.name;
+        document.querySelector('[data-profile="photo"]').src = profile.photo;
+        document.querySelector('[data-profile="photo"]').alt = profile.name;
+        document.querySelector('[data-profile="shortBio"]').textContent = profile.shortBio;
+        document.querySelector('[data-profile="story"]').textContent = profile.story;
+
+        const highlights = document.querySelector('[data-profile="highlights"]');
+        highlights.innerHTML = profile.highlights.map(item => `
+            <li class="mb-2"><i class="bi ${item.icon} text-primary me-2"></i>${item.text}</li>
+        `).join('');
+    } catch (error) {
+        console.error('Failed to load profile:', error);
+        profileContent.innerHTML = '<p class="text-danger">Unable to load profile information.</p>';
+    }
+}
 
 async function loadProjects() {
     const container = document.getElementById('projects-grid');
     if (!container) return;
 
     try {
-        const isInPagesFolder = window.location.pathname.includes('/pages/');
-        const apiUrl = isInPagesFolder
-            ? new URL('../backend/api.php', window.location.href).href
-            : new URL('backend/api.php', window.location.href).href;
-
-        const response = await fetch(apiUrl);
+        const response = await fetch('/api/projects');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

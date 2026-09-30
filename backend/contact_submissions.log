@@ -1,0 +1,6 @@
+[2026-05-22 19:15:54] Name: Test User | Email: test@example.com | Message: This is a test message
+[2026-05-22 19:18:48] Name: Test | Email: test@example.com | Message: Testing
+[2026-05-22 19:25:40] Name: Test User | Email: test@example.com | Message: Testing contact handler
+{"timestamp":"2026-09-30T08:17:29.111Z","name":"Browser Test","email":"test@example.com","message":"Endpoint verification"}
+{"timestamp":"2026-09-30T08:17:53.236Z","name":"enchue","email":"enchalewmelese@gmail.com","message":"hi"}
+{"timestamp":"2026-09-30T08:38:03.699Z","name":"enchalew","email":"enchalewmelese@gmail.com","message":"hie"}

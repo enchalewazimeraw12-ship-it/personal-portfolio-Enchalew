@@ -1,0 +1,12 @@
+{
+  "name": "Enchalew Azimeraw Melese",
+  "photo": "/assets/images/profile.jpg",
+  "shortBio": "I am a Full-stack Developer and Data Science enthusiast with a passion for building scalable web applications and solving meaningful problems through clean code.",
+  "story": "My journey in technology began at Mekdela Amba University, where I am pursuing my Computer Science degree. I am especially interested in JavaScript, React, Machine Learning, NLP, and classification models.",
+  "highlights": [
+    { "icon": "bi-mortarboard-fill", "text": "Computer Science Student" },
+    { "icon": "bi-building", "text": "Mekdela Amba University" },
+    { "icon": "bi-code-slash", "text": "Full-stack Developer" },
+    { "icon": "bi-brain", "text": "Data Science Enthusiast" }
+  ]
+}
