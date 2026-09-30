@@ -51,8 +51,8 @@ header {
 
 .nav-logo {
     display: block;
-    width: 86px;
-    height: 86px;
+    width: auto;
+    height: 45px;
     object-fit: contain;
     padding: 0.3rem;
     border-radius: 50%;
@@ -454,8 +454,8 @@ footer a:hover {
     }
 
     .nav-logo {
-        width: 64px;
-        height: 64px;
+        width: auto;
+        height: 45px;
     }
 
     .navbar-toggler {
