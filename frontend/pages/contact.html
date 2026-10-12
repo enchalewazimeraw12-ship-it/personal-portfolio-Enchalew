@@ -145,8 +145,7 @@
 
                     try {
                         const formData = Object.fromEntries(new FormData(contactForm));
-                        const apiUrl = '../api/contact';
-
+                       const apiUrl = 'https://portfolio.omeresmale.com/backend/send_email.php';
                         let response = await fetch(apiUrl, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
