@@ -86,9 +86,9 @@ app.post('/api/contact', async (req, res) => {
         }) + '\n');
 
         if (!emailConfigured) {
-            return res.json({
-                success: true,
-                message: 'Thank you! Your message has been saved. Email delivery is not configured yet.',
+            return res.status(503).json({
+                success: false,
+                message: 'Your message was saved, but email delivery is not configured, so it was not sent.',
             });
         }
 
@@ -100,7 +100,7 @@ app.post('/api/contact', async (req, res) => {
             text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
         });
 
-        res.json({ success: true, message: 'Thank you! Your message has been received.' });
+        res.json({ success: true, message: 'Thank you! Your message has been sent.' });
     } catch (error) {
         res.status(500).json({ success: false, message: 'Unable to send your message right now.' });
     }

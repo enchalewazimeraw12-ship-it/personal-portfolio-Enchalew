@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="../index.html" aria-label="Enchalew Azimeraw Melese home"><img src="../assets/images/logo enchu.png" alt="Enchalew Azimeraw Melese logo" class="nav-logo"></a>
+                <a class="navbar-brand fw-bold" href="../index.html" aria-label="Enchalew Azimeraw Melese home"><img src="../assets/images/logo enchu.png" alt="Enchalew Azimeraw Melese logo" class="nav-logo" height="60" width="60" style="height: 60px !important; width: 60px !important; background: #ffffff; border-radius: 50%; padding: 4px; object-fit: contain; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -145,13 +145,27 @@
 
                     try {
                         const formData = Object.fromEntries(new FormData(contactForm));
-                        const apiUrl = '/api/contact';
+                        const apiUrl = '../api/contact';
 
-                        const response = await fetch(apiUrl, {
+                        let response = await fetch(apiUrl, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(formData)
                         });
+
+                        let contentType = response.headers.get('content-type') || '';
+                        if (response.status === 404 || !contentType.includes('application/json')) {
+                            response = await fetch('../backend/send_email.php', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                                body: new URLSearchParams(formData)
+                            });
+                            contentType = response.headers.get('content-type') || '';
+                        }
+
+                        if (!contentType.includes('application/json')) {
+                            throw new Error('The contact service is unavailable. Please try again later.');
+                        }
 
                         const data = await response.json();
                         formMessage.style.display = 'block';

@@ -69,11 +69,10 @@ if (file_put_contents($logFile, $logEntry, FILE_APPEND)) {
             'message' => 'Email sent successfully! I will get back to you soon.'
         ]);
     } else {
-        // mail() failed, but log was saved - still report success to user
-        http_response_code(200);
+        http_response_code(500);
         echo json_encode([
-            'success' => true,
-            'message' => 'Thank you! Your message has been received. I will get back to you soon.'
+            'success' => false,
+            'message' => 'Your message was saved, but email delivery failed. Please try again later.'
         ]);
     }
 } else {
